@@ -35,7 +35,8 @@ namespace CodeBase.Infrastructure.States
     {
       RegisterAssetProvider();
       _services.RegisterSingle<ISceneLoaderService>(new SceneLoaderService());
-      _services.RegisterSingle<IUiFactory>(new UiFactory(_services.Single<IAssetProvider>()));
+      _services.RegisterSingle<IUiFactory>(new UiFactory(_services));
+      _services.RegisterSingle<IUiFactory>(new UiFactory(_services));
     }
 
     private void RegisterAssetProvider()

@@ -15,6 +15,16 @@ MonoBehaviour:
   m_GroupName: User Interface
   m_GUID: 5cf132c92369d5d488fde835ff47bbf5
   m_SerializeEntries:
+  - m_GUID: 5607b8d896bd0cf46a3f27d879cf1a44
+    m_Address: PictureCell
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7f38a30c3da33e4f9afdd9906b24cc8
+    m_Address: PictureScroll
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fae70da5de33f3e47b0754095c9d7600
     m_Address: UiRoot
     m_ReadOnly: 0

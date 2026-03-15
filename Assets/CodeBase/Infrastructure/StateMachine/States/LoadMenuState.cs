@@ -24,13 +24,17 @@ namespace CodeBase.Infrastructure.States
       await UniTask.WaitUntil(() => loadingMainMenuOperation.Status == UniTaskStatus.Succeeded);
 
       await InitUIRoot();
+      await InitPictureScroll();
       _stateMachine.Enter<MainMenuLoopState>();
     }
 
     public void Exit() { }
 
-    private async UniTask InitUIRoot() => 
+    private async UniTask InitUIRoot() =>
       await _uiFactory.CreateUIRoot();
+
+    private async UniTask InitPictureScroll() =>
+      await _uiFactory.CreatePictureScroll();
 
     private async UniTask LoadMainMenuSceneAsync()
     {
