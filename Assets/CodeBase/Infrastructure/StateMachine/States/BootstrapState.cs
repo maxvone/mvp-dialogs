@@ -22,7 +22,7 @@ namespace CodeBase.Infrastructure.States
 
     private void EnterLoadLevel()
     {
-      //_stateMachine.Enter<LoadLevelState>();
+      _stateMachine.Enter<LoadLevelState>();
     }
 
     public void Exit()
@@ -31,6 +31,7 @@ namespace CodeBase.Infrastructure.States
 
     private void RegisterServices()
     {
+      _services.RegisterSingle<ISceneLoaderService>(new SceneLoaderService());
     }
   }
 }

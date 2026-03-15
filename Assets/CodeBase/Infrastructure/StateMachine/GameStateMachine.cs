@@ -14,6 +14,8 @@ namespace CodeBase.Infrastructure.States
       _states = new Dictionary<Type, IExitableState>
       {
         [typeof(BootstrapState)] = new BootstrapState(this, services),
+        [typeof(LoadLevelState)] = new LoadLevelState(this),
+        [typeof(MainMenuLoopState)] = new MainMenuLoopState(this),
       };
     }
     
