@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6895122552f43614fb52b10d8cc37779, type: 3}
+  m_Name: PuzzlesStaticData
+  m_EditorClassIdentifier: Assembly-CSharp::CodeBase.StaticData.PuzzlesStaticData
+  Puzzles:
+  - Id: pic-0
+    Title: Cat 1
+    Path: pic
+  - Id: pic-1
+    Title: Cat 2
+    Path: pic
+  - Id: pic-2
+    Title: Cat 3
+    Path: pic
+  - Id: pic-3
+    Title: Cat 4
+    Path: pic
+  - Id: pic-4
+    Title: Cat 5
+    Path: pic

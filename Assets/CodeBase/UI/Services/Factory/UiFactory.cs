@@ -32,7 +32,7 @@ namespace CodeBase.UI.Services.Factory
       GameObject pictureScroll = await _assetProvider.Instantiate(AssetAddress.PictureScrollPath);
 
       PictureScrollView view = pictureScroll.GetComponent<PictureScrollView>();
-      PictureScrollPresenter presenter = new(view, new PictureScrollPresenterPayload(this));
+      PictureScrollPresenter presenter = new(view, new PictureScrollPresenterPayload(this, _services.Single<IAssetProvider>()));
       presenter.Initialize();
 
       pictureScroll.transform.SetParent(UiRoot, false);

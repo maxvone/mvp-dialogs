@@ -1,5 +1,3 @@
-using UnityEngine.AddressableAssets;
-
 namespace CodeBase.AssetManagement
 {
   public static class AssetAddress
@@ -9,7 +7,8 @@ namespace CodeBase.AssetManagement
     public const string PictureScrollPath = "PictureScroll";
     public const string PictureCellPath = "PictureCell";
 
-    //Other Addresses
+    //Static Data
+    public const string PuzzlesStaticDataPath = "PuzzlesStaticData";
 
-  }
+    }
 }
