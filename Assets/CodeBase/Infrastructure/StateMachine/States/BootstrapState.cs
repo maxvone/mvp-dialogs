@@ -1,4 +1,6 @@
-﻿using CodeBase.Services;
+﻿using CodeBase.AssetManagement;
+using CodeBase.Services;
+using CodeBase.UI.Services.Factory;
 
 namespace CodeBase.Infrastructure.States
 {
@@ -22,7 +24,7 @@ namespace CodeBase.Infrastructure.States
 
     private void EnterLoadLevel()
     {
-      _stateMachine.Enter<LoadLevelState>();
+      _stateMachine.Enter<LoadMenuState>();
     }
 
     public void Exit()
@@ -31,7 +33,16 @@ namespace CodeBase.Infrastructure.States
 
     private void RegisterServices()
     {
+      RegisterAssetProvider();
       _services.RegisterSingle<ISceneLoaderService>(new SceneLoaderService());
+      _services.RegisterSingle<IUiFactory>(new UiFactory(_services.Single<IAssetProvider>()));
+    }
+
+    private void RegisterAssetProvider()
+    {
+      AssetProvider assetProvider = new AssetProvider();
+      _services.RegisterSingle<IAssetProvider>(assetProvider);
+      assetProvider.Initialize();
     }
   }
 }

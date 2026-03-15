@@ -1,28 +1,36 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using CodeBase.UI.Services.Factory;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace CodeBase.Infrastructure.States
 {
-  public class LoadLevelState : IState
+  public class LoadMenuState : IState
   {
     private const string mainMenuSceneName = "MainMenuScene"; //TODO: Move to config
 
     private readonly GameStateMachine _stateMachine;
+    private readonly IUiFactory _uiFactory;
 
-    public LoadLevelState(GameStateMachine gameStateMachine)
+    public LoadMenuState(GameStateMachine gameStateMachine, IUiFactory uiFactory)
     {
       _stateMachine = gameStateMachine;
+      _uiFactory = uiFactory;
     }
 
     public async void Enter()
     {
       UniTask loadingMainMenuOperation = LoadMainMenuSceneAsync();
       await UniTask.WaitUntil(() => loadingMainMenuOperation.Status == UniTaskStatus.Succeeded);
+
+      await InitUIRoot();
       _stateMachine.Enter<MainMenuLoopState>();
     }
 
     public void Exit() { }
+
+    private async UniTask InitUIRoot() => 
+      await _uiFactory.CreateUIRoot();
 
     private async UniTask LoadMainMenuSceneAsync()
     {

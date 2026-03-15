@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CodeBase.Services;
+using CodeBase.UI.Services.Factory;
 
 namespace CodeBase.Infrastructure.States
 {
@@ -14,7 +15,7 @@ namespace CodeBase.Infrastructure.States
       _states = new Dictionary<Type, IExitableState>
       {
         [typeof(BootstrapState)] = new BootstrapState(this, services),
-        [typeof(LoadLevelState)] = new LoadLevelState(this),
+        [typeof(LoadMenuState)] = new LoadMenuState(this, services.Single<IUiFactory>()),
         [typeof(MainMenuLoopState)] = new MainMenuLoopState(this),
       };
     }
