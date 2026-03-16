@@ -40,6 +40,7 @@ namespace CodeBase.UI.MvpImpl
       View.PlayButtonFree.onClick.AddListener(HandlePlayFreeButtonClicked);
       View.PlayButtonCoins.onClick.AddListener(HandlePlayCoinsButtonClicked);
       View.PlayButtonAds.onClick.AddListener(HandlePlayAdsButtonClicked);
+      View.CloseButton.onClick.AddListener(View.Hide);
     }
 
     public override void Dispose()
@@ -47,6 +48,7 @@ namespace CodeBase.UI.MvpImpl
       View.PlayButtonFree.onClick.RemoveListener(HandlePlayFreeButtonClicked);
       View.PlayButtonCoins.onClick.RemoveListener(HandlePlayCoinsButtonClicked);
       View.PlayButtonAds.onClick.RemoveListener(HandlePlayAdsButtonClicked);
+      View.CloseButton.onClick.RemoveListener(View.Hide);
     }
 
     private void LoadPuzzleImage()
