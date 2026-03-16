@@ -10,7 +10,7 @@ namespace CodeBase.UI.Mvp
 
     private void Awake()
     {
-      Hide();
+      gameObject.SetActive(false);
     }
 
     public virtual void Show()
@@ -21,7 +21,7 @@ namespace CodeBase.UI.Mvp
 
     public virtual void Hide()
     {
-      gameObject.SetActive(false);
+      Destroy(gameObject); //TODO: for the sake of simplicity I leave Destroy here, but in real project we should use object pool for views & presenters
       OnHidden?.Invoke();
     }
   }
