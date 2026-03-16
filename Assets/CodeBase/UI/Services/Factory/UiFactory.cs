@@ -1,6 +1,7 @@
 ﻿using System;
 using CodeBase.AssetManagement;
 using CodeBase.Services;
+using CodeBase.StaticData;
 using CodeBase.UI.Mvp;
 using CodeBase.UI.MvpImpl;
 using Cysharp.Threading.Tasks;
@@ -33,7 +34,7 @@ namespace CodeBase.UI.Services.Factory
 
       PictureScrollView view = pictureScroll.GetComponent<PictureScrollView>();
       PictureScrollPresenter presenter = new(view, new PictureScrollPresenterPayload(this, _services.Single<IAssetProvider>()));
-      presenter.Initialize();
+      presenter.InitializeAsync().Forget();
 
       pictureScroll.transform.SetParent(UiRoot, false);
       return pictureScroll;
@@ -43,6 +44,21 @@ namespace CodeBase.UI.Services.Factory
     {
       GameObject cell = await _assetProvider.Instantiate(AssetAddress.PictureCellPath);
       return cell;
+    }
+
+    public async UniTask<GameObject> CreatePlayDialog(PuzzleData data)
+    {
+      GameObject dialog = await _assetProvider.Instantiate(AssetAddress.PlayDialogPath);
+
+      PlayDialogView view = dialog.GetComponent<PlayDialogView>();
+      PlayDialogPresenter presenter = new(view, new PlayDialogPresenterPayload(data,
+        _services.Single<IAssetProvider>(),
+        _services.Single<IStartPuzzleService>()
+      ));
+      presenter.InitializeAsync().Forget();
+
+      dialog.transform.SetParent(UiRoot, false);
+      return dialog;
     }
   }
 }

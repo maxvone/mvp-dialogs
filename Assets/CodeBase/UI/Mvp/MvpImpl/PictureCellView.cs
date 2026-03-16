@@ -7,6 +7,9 @@ namespace CodeBase.UI.MvpImpl
   public class PictureCellView : BaseView
   {
     [SerializeField] private Image _image;
+    [SerializeField] private Button _button;
+
+    public Button Button => _button;
 
     public void SetImage(Texture2D texture)
     {

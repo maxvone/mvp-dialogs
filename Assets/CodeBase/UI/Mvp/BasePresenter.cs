@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 
 namespace CodeBase.UI.Mvp
 {
@@ -14,7 +15,7 @@ namespace CodeBase.UI.Mvp
       View = view != null ? view : throw new ArgumentNullException(nameof(view));
     }
 
-    public abstract void Initialize();
+    public abstract UniTask InitializeAsync();
     public abstract void Dispose();
   }
 }

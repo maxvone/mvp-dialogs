@@ -22,9 +22,9 @@ namespace CodeBase.UI.MvpImpl
 
   public class PictureScrollPresenter : BasePresenter<PictureScrollView>
   {
-    private readonly List<PictureCellView> _cellViews = new();
-    private readonly IUiFactory _uiFactory;
+    private readonly Dictionary<PuzzleData, PictureCellView> _cellViews = new();
     private readonly IAssetProvider _assetProvider;
+    private readonly IUiFactory _uiFactory;
 
     public PictureScrollPresenter(PictureScrollView view, PictureScrollPresenterPayload payload) : base(view)
     {
@@ -33,23 +33,40 @@ namespace CodeBase.UI.MvpImpl
 
     }
 
-    public override void Initialize()
+    public override async UniTask InitializeAsync()
     {
-      InitializeScrollView();
+      await InitializeScrollView();
+      foreach (var dataByView in _cellViews)
+      {
+        PuzzleData data = dataByView.Key;
+        PictureCellView cellView = dataByView.Value;
+
+        cellView.Button.onClick.AddListener(() =>
+        {
+          OpenPlayDialog(data);
+        });
+      }
+    }
+
+    private void OpenPlayDialog(PuzzleData data)
+    {
+      _uiFactory.CreatePlayDialog(data).Forget();
     }
 
     public override void Dispose()
     {
+      foreach (PictureCellView cellView in _cellViews.Values)
+        cellView.Button.onClick.RemoveAllListeners();
     }
 
-    private void InitializeScrollView()
+    private async UniTask InitializeScrollView()
     {
-      var puzzleData = _assetProvider.Load<PuzzlesStaticData>(AssetAddress.PuzzlesStaticDataPath)
-        .ContinueWith(data =>
+      await _assetProvider.Load<PuzzlesStaticData>(AssetAddress.PuzzlesStaticDataPath)
+        .ContinueWith(async data =>
       {
         foreach (PuzzleData puzzleData in data.Puzzles)
         {
-          UniTask op = _uiFactory.CreatePictureCell().ContinueWith(async cellGo =>
+          await _uiFactory.CreatePictureCell().ContinueWith(async cellGo =>
           {
             PictureCellView cellView = cellGo.GetComponent<PictureCellView>();
             cellGo.transform.SetParent(View.transform, false);
@@ -59,9 +76,8 @@ namespace CodeBase.UI.MvpImpl
                cellView.SetImage(texture);
              });
 
-            _cellViews.Add(cellView);
+            _cellViews.Add(puzzleData, cellView);
           });
-
         }
       });
     }
