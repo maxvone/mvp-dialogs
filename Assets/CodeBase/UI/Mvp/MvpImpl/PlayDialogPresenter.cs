@@ -45,10 +45,10 @@ namespace CodeBase.UI.MvpImpl
 
     public override void Dispose()
     {
-      View.PlayButtonFree.onClick.RemoveListener(HandlePlayFreeButtonClicked);
-      View.PlayButtonCoins.onClick.RemoveListener(HandlePlayCoinsButtonClicked);
-      View.PlayButtonAds.onClick.RemoveListener(HandlePlayAdsButtonClicked);
-      View.CloseButton.onClick.RemoveListener(View.Hide);
+      View.PlayButtonFree.onClick.RemoveAllListeners();
+      View.PlayButtonCoins.onClick.RemoveAllListeners();
+      View.PlayButtonAds.onClick.RemoveAllListeners();
+      View.CloseButton.onClick.RemoveAllListeners();
     }
 
     private void LoadPuzzleImage()

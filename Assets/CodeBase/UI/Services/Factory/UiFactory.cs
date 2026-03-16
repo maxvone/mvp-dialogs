@@ -1,8 +1,6 @@
-﻿using System;
-using CodeBase.AssetManagement;
+﻿using CodeBase.AssetManagement;
 using CodeBase.Services;
 using CodeBase.StaticData;
-using CodeBase.UI.Mvp;
 using CodeBase.UI.MvpImpl;
 using Cysharp.Threading.Tasks;
 using UnityEngine;

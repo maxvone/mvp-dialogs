@@ -2,7 +2,7 @@ using CodeBase.StaticData;
 
 namespace CodeBase.UI.Services.Factory
 {
-    public interface IStartPuzzlePaymentStrategy
+  public interface IStartPuzzlePaymentStrategy
   {
     bool TryPay(PuzzleData puzzleData);
   }

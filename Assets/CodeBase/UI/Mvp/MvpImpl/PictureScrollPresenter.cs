@@ -30,7 +30,6 @@ namespace CodeBase.UI.MvpImpl
     {
       _uiFactory = payload.UiFactory;
       _assetProvider = payload.AssetProvider;
-
     }
 
     public override async UniTask InitializeAsync()

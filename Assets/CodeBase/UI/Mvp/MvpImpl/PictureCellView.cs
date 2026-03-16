@@ -11,9 +11,7 @@ namespace CodeBase.UI.MvpImpl
 
     public Button Button => _button;
 
-    public void SetImage(Texture2D texture)
-    {
+    public void SetImage(Texture2D texture) =>
       _image.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
-    }
   }
 }

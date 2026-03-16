@@ -17,19 +17,13 @@ namespace CodeBase.Infrastructure.States
       RegisterServices();
     }
 
-    public void Enter()
-    {
+    public void Enter() =>
       EnterLoadLevel();
-    }
 
-    private void EnterLoadLevel()
-    {
+    private void EnterLoadLevel() =>
       _stateMachine.Enter<LoadMenuState>();
-    }
 
-    public void Exit()
-    {
-    }
+    public void Exit() { }
 
     private void RegisterServices()
     {

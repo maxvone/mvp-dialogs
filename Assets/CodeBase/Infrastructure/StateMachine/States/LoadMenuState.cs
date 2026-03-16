@@ -8,7 +8,7 @@ namespace CodeBase.Infrastructure.States
 {
   public class LoadMenuState : IState
   {
-    private const string mainMenuSceneName = "MainMenuScene"; //TODO: Move to config
+    private const string MainMenuSceneName = "MainMenuScene"; //TODO: Move to config
 
     private readonly GameStateMachine _stateMachine;
     private readonly IUiFactory _uiFactory;
@@ -26,6 +26,7 @@ namespace CodeBase.Infrastructure.States
 
       await InitUIRoot();
       await InitPictureScroll();
+
       _stateMachine.Enter<MainMenuLoopState>();
     }
 
@@ -42,13 +43,13 @@ namespace CodeBase.Infrastructure.States
 
     private async UniTask LoadMainMenuSceneAsync()
     {
-      AsyncOperation loadingSceneOperation = SceneManager.LoadSceneAsync(mainMenuSceneName, LoadSceneMode.Additive);
+      AsyncOperation loadingSceneOperation = SceneManager.LoadSceneAsync(MainMenuSceneName, LoadSceneMode.Additive);
 
       await loadingSceneOperation;
 
-      Debug.Log($"Boot + Gameplay loaded! Active scene = {SceneManager.GetActiveScene().name}");
+      Debug.Log($"Boot + Menu loaded! Active scene = {SceneManager.GetActiveScene().name}");
 
-      Scene mainMenu = SceneManager.GetSceneByName(mainMenuSceneName);
+      Scene mainMenu = SceneManager.GetSceneByName(MainMenuSceneName);
       if (mainMenu.IsValid())
         SceneManager.SetActiveScene(mainMenu);
     }
