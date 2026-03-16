@@ -23,6 +23,7 @@ This project follows a modular, scalable architecture designed for maintainabili
 - **Purpose**: Provides dependency injection and service management
 - **Implementation**:
   - `AllServices.Container`: Singleton service registry
+  - Services registrations happen in `BootstrapState`
   - Services implement `IService` interface
   - Examples: `SceneLoaderService`, `AssetProvider`
 
