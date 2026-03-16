@@ -8,6 +8,11 @@ namespace CodeBase.UI.Mvp
     public event Action OnShown;
     public event Action OnHidden;
 
+    private void Awake()
+    {
+      Hide();
+    }
+
     public virtual void Show()
     {
       gameObject.SetActive(true);

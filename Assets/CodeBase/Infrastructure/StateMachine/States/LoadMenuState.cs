@@ -1,4 +1,5 @@
-﻿using CodeBase.UI.Services.Factory;
+﻿using CodeBase.UI.MvpImpl;
+using CodeBase.UI.Services.Factory;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -33,8 +34,11 @@ namespace CodeBase.Infrastructure.States
     private async UniTask InitUIRoot() =>
       await _uiFactory.CreateUIRoot();
 
-    private async UniTask InitPictureScroll() =>
-      await _uiFactory.CreatePictureScroll();
+    private async UniTask InitPictureScroll()
+    {
+      PictureScrollPresenter presenter = await _uiFactory.CreatePictureScroll();
+      presenter.Show();
+    }
 
     private async UniTask LoadMainMenuSceneAsync()
     {

@@ -17,5 +17,6 @@ namespace CodeBase.UI.Mvp
 
     public abstract UniTask InitializeAsync();
     public abstract void Dispose();
+    public virtual void Show() => View.Show();
   }
 }

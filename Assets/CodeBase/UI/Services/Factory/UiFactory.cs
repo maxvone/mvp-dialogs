@@ -28,7 +28,7 @@ namespace CodeBase.UI.Services.Factory
       UiRoot = root.transform;
     }
 
-    public async UniTask<GameObject> CreatePictureScroll()
+    public async UniTask<PictureScrollPresenter> CreatePictureScroll()
     {
       GameObject pictureScroll = await _assetProvider.Instantiate(AssetAddress.PictureScrollPath);
 
@@ -37,7 +37,7 @@ namespace CodeBase.UI.Services.Factory
       presenter.InitializeAsync().Forget();
 
       pictureScroll.transform.SetParent(UiRoot, false);
-      return pictureScroll;
+      return presenter;
     }
 
     public async UniTask<GameObject> CreatePictureCell()
@@ -46,7 +46,7 @@ namespace CodeBase.UI.Services.Factory
       return cell;
     }
 
-    public async UniTask<GameObject> CreatePlayDialog(PuzzleData data)
+    public async UniTask<PlayDialogPresenter> CreatePlayDialog(PuzzleData data)
     {
       GameObject dialog = await _assetProvider.Instantiate(AssetAddress.PlayDialogPath);
 
@@ -58,7 +58,7 @@ namespace CodeBase.UI.Services.Factory
       presenter.InitializeAsync().Forget();
 
       dialog.transform.SetParent(UiRoot, false);
-      return dialog;
+      return presenter;
     }
   }
 }

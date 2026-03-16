@@ -18,13 +18,13 @@ MonoBehaviour:
     Path: pic
   - Id: pic-1
     Title: Cat 2
-    Path: pic
+    Path: pic-2
   - Id: pic-2
     Title: Cat 3
-    Path: pic
+    Path: pic-3
   - Id: pic-3
     Title: Cat 4
-    Path: pic
+    Path: pic-4
   - Id: pic-4
     Title: Cat 5
-    Path: pic
+    Path: pic-5

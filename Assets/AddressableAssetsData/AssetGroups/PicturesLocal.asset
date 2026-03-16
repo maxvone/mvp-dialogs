@@ -15,8 +15,28 @@ MonoBehaviour:
   m_GroupName: PicturesLocal
   m_GUID: 2a8bc1df064e9d04689ff3c98e07a396
   m_SerializeEntries:
+  - m_GUID: 0eeef5881959446478f665e3bcff6536
+    m_Address: pic-3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11ce5636372b0524b95aba70cd029933
+    m_Address: pic-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 360505e3cea67924ab7fb5e027daa660
+    m_Address: pic-4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 555b5e202e887dc4b90ca669c014ca62
     m_Address: pic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9995b1955ba91cc4f9a64da540077c1e
+    m_Address: pic-5
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

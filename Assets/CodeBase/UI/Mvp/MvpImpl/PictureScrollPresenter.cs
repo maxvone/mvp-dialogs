@@ -50,7 +50,10 @@ namespace CodeBase.UI.MvpImpl
 
     private void OpenPlayDialog(PuzzleData data)
     {
-      _uiFactory.CreatePlayDialog(data).Forget();
+      _uiFactory.CreatePlayDialog(data).ContinueWith(presenter =>
+      {
+        presenter.Show();
+      }).Forget();
     }
 
     public override void Dispose()
@@ -74,6 +77,7 @@ namespace CodeBase.UI.MvpImpl
             await _assetProvider.Load<Texture2D>(puzzleData.Path).ContinueWith(texture =>
              {
                cellView.SetImage(texture);
+               cellView.Show();
              });
 
             _cellViews.Add(puzzleData, cellView);
