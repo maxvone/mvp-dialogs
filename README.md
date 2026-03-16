@@ -44,7 +44,6 @@ Assets/
 
 ### Key Technologies
 
-- **Unity ** with Universal Render Pipeline
 - **UniTask**: For async/await support in Unity
 - **Unity Addressables**: For asset loading
 - **Input System**: Modern input handling
